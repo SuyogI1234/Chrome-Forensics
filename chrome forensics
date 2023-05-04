@@ -1,0 +1,36 @@
+
+
+REM Create a folder to store the forensic data
+md C:\Forensic_Data
+
+REM Google Chrome Forensics
+
+REM Copy the Chrome user data folder
+xcopy "C:\Users\%username%\AppData\Local\Google\Chrome\User Data" "C:\Forensic_Data\Chrome_User_Data" /E /I /C /H /R /K /Y
+
+REM Export the browser history
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://history" > "C:\Forensic_Data\Chrome_History.txt"
+
+REM Export the bookmarks
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://bookmarks" > "C:\Forensic_Data\Chrome_Bookmarks.txt"
+
+REM Export the cookies
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extenions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://settings/cookies" > "C:\Forensic_Data\Chrome_Cookies.txt"
+
+REM Export the extensions
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://extensions" > "C:\Forensic_Data\Chrome_Extensions.txt"
+
+REM Export the login data
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://settings/passwords" > "C:\Forensic_Data\Chrome_Login_Data.txt"
+
+REM Export the search history
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://history/search" > "C:\Forensic_Data\Chrome_Search_History.txt"
+
+REM Export the download history
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://downloads" > "C:\Forensic_Data\Chrome_Download_History.txt"
+
+REM Export the cache
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-extensions --disable-popup-blocking --bwsi --enable-logging --log-level=0 --v1-logging --user-data-dir="C:\Forensic_Data\Chrome_User_Data" "chrome://cache" > "C:\Forensic_Data\Chrome_Cache.txt"
+
+REM Export the autofill data
+"C
